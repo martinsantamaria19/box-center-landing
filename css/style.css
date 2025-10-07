@@ -1,0 +1,101 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .hero {
+    background: url('../img/storage-facility-hero.jpg') center center/cover no-repeat;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(65, 64, 64, 0.6); /* Overlay gris controlable */
+    z-index: 1;
+  }
+
+  .hero .container-fluid {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .card {
+    border-radius: 12px;
+  }
+  
+  .btn-warning {
+    background-color: #ffbf00;
+    border: none;
+    color: #000;
+  }
+  
+  .btn-warning:hover {
+    background-color: #e6ad00;
+  }
+  
+  .form-control:focus {
+    box-shadow: none;
+    border-color: #ffbf00;
+  }
+
+  .contenedor-principal {
+    margin-top: 30px;
+    max-width: 90%;
+    margin-bottom: 30px;
+  }
+  
+  .titulo-principal {
+    font-size: 3.8em;
+    line-height: 1.1;
+  }
+
+  .texto-amarillo {
+    color: #FFC107;
+  }
+
+  .texto-superior {
+    font-size: 1.2em;
+  }
+
+  .contenedor-seguridad {
+    padding-right: 10%;
+  }
+
+  /* Estilos del formulario */
+  .form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 191, 0, 0.25);
+    border-color: #ffbf00;
+  }
+
+  .btn-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .spinner-border-sm {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  /* Animación del hero al hacer scroll */
+  .hero.scrolled {
+    transform: translateY(-10px);
+    transition: transform 0.3s ease;
+  }
+
+  /* Validación de formulario */
+  .form-control.is-invalid {
+    border-color: #dc3545;
+  }
+
+  .form-control.is-valid {
+    border-color: #28a745;
+  }
