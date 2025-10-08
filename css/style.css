@@ -131,6 +131,14 @@ body, html {
 
   /* Smartphones pequeños (320px - 480px) */
   @media (max-width: 480px) {
+    .logo-header {
+      position: static !important;
+      display: block;
+      margin: 20px auto 30px auto;
+      max-width: 80px;
+      text-align: center;
+    }
+
     .contenedor-principal {
       margin-top: 30px;
       margin-bottom: 15px;
@@ -187,6 +195,14 @@ body, html {
 
   /* Tablets (481px - 768px) */
   @media (min-width: 481px) and (max-width: 768px) {
+    .logo-header {
+      position: static !important;
+      display: block;
+      margin: 25px auto 35px auto;
+      max-width: 100px;
+      text-align: center;
+    }
+
     .contenedor-principal {
       max-width: 92%;
     }
@@ -213,6 +229,14 @@ body, html {
 
   /* Orientación landscape en móviles */
   @media (max-height: 600px) and (orientation: landscape) {
+    .logo-header {
+      position: static !important;
+      display: block;
+      margin: 15px auto 20px auto;
+      max-width: 70px;
+      text-align: center;
+    }
+
     .hero {
       min-height: auto;
       padding: 20px 0;
@@ -292,6 +316,16 @@ body, html {
   backdrop-filter: blur(3px);
 }
 
+/* Logo en esquina superior izquierda */
+.logo-header {
+  top: 20px;
+  left: 15px;
+  z-index: 3;
+  max-width: 120px;
+  height: auto;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+}
+
 /* Contenido principal */
 .contenedor-principal {
   position: relative;
@@ -303,6 +337,14 @@ body, html {
   margin-top: 2rem;
   font-size: 0.95rem;
   color: #fff;
+}
+
+/* Estilos específicos para desktop */
+@media (min-width: 769px) {
+  .logo-header {
+    top: 20px;
+    max-width: 100px; /* Logo más pequeño en desktop */
+  }
 }
 
 /* Pequeños ajustes responsive */
