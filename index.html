@@ -83,8 +83,21 @@
 </head>
 <body>
 
-  <section class="hero d-flex align-items-center">
-    <div class="container-fluid contenedor-principal">
+  <section class="hero d-flex align-items-center position-relative">
+    <!-- Imagen optimizada del hero -->
+    <img 
+      src="img/storage-facility-hero.webp" 
+      alt="Depósitos seguros en Montevideo con vigilancia 24/7" 
+      class="hero-bg"
+      width="1920" 
+      height="1080"
+      decoding="async"
+      fetchpriority="high">
+  
+    <!-- Overlay oscuro para contraste de texto -->
+    <div class="hero-overlay"></div>
+  
+    <div class="container-fluid contenedor-principal position-relative">
       <div class="row align-items-center">
         <!-- Columna izquierda -->
         <div class="col-lg-6 text-white mb-4 mb-lg-0">
@@ -98,7 +111,7 @@
           </h1>
           <p class="subtitulo-hero">Boxes desde 1.5m² hasta 1,500m² con seguridad y vigilancia 24/7.</p>
           <p class="subtitulo-hero">Soluciones de depósito para particulares, empresas y oficinas.</p>
-
+  
           <div class="mt-3 mt-md-4 d-flex flex-wrap gap-3 gap-md-4 contenedor-seguridad">
             <div class="fw-semibold caracteristica-item">
               <i class="bi bi-clock me-2 text-warning" aria-hidden="true"></i>
@@ -114,7 +127,7 @@
             </div>
           </div>
         </div>
-
+  
         <!-- Columna derecha (Formulario) -->
         <div class="col-lg-6">
           <div class="card shadow-lg border-0 p-3 p-md-4">
@@ -127,7 +140,7 @@
               </div>
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" id="email" name="email" class="form-control" placeholder="tu@email.com" required autocomplete="email">
+                <input type="email" id="email" name="email" class="form-control" placeholder="nombre@tuempresa.com" required autocomplete="email">
               </div>
               <div class="mb-3">
                 <label for="telefono" class="form-label">Teléfono</label>
@@ -147,6 +160,7 @@
               <p class="text-center text-muted small mt-3 mb-0 form-footer">Sin compromiso • Respuesta inmediata</p>
             </form>
           </div>
+  
           <div class="seo-text">
             <p>
               En <strong>BoxCenter Uruguay</strong> ofrecemos soluciones de 
@@ -158,10 +172,9 @@
           </div>
         </div>
       </div>
-
     </div>
-    
   </section>
+  
 
   
 
