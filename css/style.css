@@ -1,12 +1,15 @@
 body, html {
     height: 100%;
     margin: 0;
-    font-family: 'Inter', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   
   .hero {
     background: url('../img/storage-facility-hero.jpg') center center/cover no-repeat;
     min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height para mobile */
     position: relative;
   }
 
@@ -17,8 +20,9 @@ body, html {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(65, 64, 64, 0.6); /* Overlay gris controlable */
+    background-color: rgba(0, 0, 0, 0.6);
     z-index: 1;
+    backdrop-filter: blur(3px);
   }
 
   .hero .container-fluid {
@@ -34,10 +38,18 @@ body, html {
     background-color: #ffbf00;
     border: none;
     color: #000;
+    transition: all 0.3s ease;
   }
   
-  .btn-warning:hover {
+  .btn-warning:hover,
+  .btn-warning:focus {
     background-color: #e6ad00;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 191, 0, 0.3);
+  }
+  
+  .btn-warning:active {
+    transform: translateY(0);
   }
   
   .form-control:focus {
@@ -46,14 +58,20 @@ body, html {
   }
 
   .contenedor-principal {
-    margin-top: 30px;
+    margin-top: 20px;
     max-width: 90%;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    padding: 0 15px;
   }
   
   .titulo-principal {
-    font-size: 3.8em;
+    font-size: clamp(2rem, 6vw, 3.8rem);
     line-height: 1.1;
+  }
+
+  .subtitulo-hero {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    margin-bottom: 0.5rem;
   }
 
   .texto-amarillo {
@@ -61,17 +79,39 @@ body, html {
   }
 
   .texto-superior {
-    font-size: 1.2em;
+    font-size: clamp(1rem, 2vw, 1.2rem);
   }
 
   .contenedor-seguridad {
-    padding-right: 10%;
+    padding-right: 0;
+    justify-content: flex-start !important;
+  }
+
+  .caracteristica-item {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    white-space: nowrap;
   }
 
   /* Estilos del formulario */
+  .form-control {
+    min-height: 44px; /* Touch target mínimo */
+    font-size: 16px; /* Evita zoom automático en iOS */
+    transition: border-color 0.2s ease;
+  }
+
   .form-control:focus {
     box-shadow: 0 0 0 0.2rem rgba(255, 191, 0, 0.25);
     border-color: #ffbf00;
+  }
+
+  .form-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  .submit-btn {
+    min-height: 48px; /* Touch target mínimo */
+    font-size: 1rem;
   }
 
   .btn-loading {
@@ -98,4 +138,145 @@ body, html {
 
   .form-control.is-valid {
     border-color: #28a745;
+  }
+
+  .seo-text {
+    margin-top: 15px;
+    color: white;
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    padding: 0 10px;
+    line-height: 1.6;
+  }
+
+  /* ==========================================
+     MEDIA QUERIES PARA MOBILE
+     ========================================== */
+
+  /* Smartphones pequeños (320px - 480px) */
+  @media (max-width: 480px) {
+    .contenedor-principal {
+      margin-top: 30px;
+      margin-bottom: 15px;
+      max-width: 95%;
+      padding: 0 10px;
+    }
+
+    .titulo-principal {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .subtitulo-hero {
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .texto-superior {
+      font-size: 1rem;
+    }
+
+    .caracteristica-item {
+      font-size: 0.85rem;
+    }
+
+    .card {
+      padding: 1.25rem !important;
+      margin-top: 1.5rem;
+    }
+
+    .form-title {
+      font-size: 1.4rem;
+    }
+
+    .form-subtitle {
+      font-size: 0.9rem;
+    }
+
+    .form-footer {
+      font-size: 0.8rem;
+    }
+
+    .seo-text {
+      margin-top: 10px;
+      font-size: 0.85rem;
+      padding: 0 5px;
+    }
+
+    .contenedor-seguridad {
+      gap: 0.75rem !important;
+      margin-top: 1rem !important;
+    }
+  }
+
+  /* Tablets (481px - 768px) */
+  @media (min-width: 481px) and (max-width: 768px) {
+    .contenedor-principal {
+      max-width: 92%;
+    }
+
+    .titulo-principal {
+      font-size: 2.8rem;
+    }
+
+    .card {
+      margin-top: 2rem;
+    }
+  }
+
+  /* Tablets landscape (769px - 1024px) */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .contenedor-principal {
+      max-width: 90%;
+    }
+
+    .titulo-principal {
+      font-size: 3.2rem;
+    }
+  }
+
+  /* Orientación landscape en móviles */
+  @media (max-height: 600px) and (orientation: landscape) {
+    .hero {
+      min-height: auto;
+      padding: 20px 0;
+    }
+
+    .contenedor-principal {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .titulo-principal {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitulo-hero {
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .card {
+      padding: 1rem !important;
+    }
+
+    .form-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .mb-3 {
+      margin-bottom: 0.75rem !important;
+    }
+  }
+
+  /* Mejoras de rendimiento */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }

@@ -1,12 +1,17 @@
-$(document).ready(function() {
-    // Manejo del formulario de contacto
-    $('#contactForm').on('submit', function(e) {
-        e.preventDefault(); // Prevenir envío por defecto
-        
-        const form = $(this);
-        const submitBtn = $('#submitBtn');
-        const btnText = $('.btn-text');
-        const btnLoading = $('.btn-loading');
+// Esperar a que el DOM esté listo
+document.addEventListener('DOMContentLoaded', function() {
+    // Elementos del formulario
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const btnText = document.querySelector('.btn-text');
+    const btnLoading = document.querySelector('.btn-loading');
+    const nombreInput = document.getElementById('nombre');
+    const emailInput = document.getElementById('email');
+    const telefonoInput = document.getElementById('telefono');
+    
+    // Manejo del envío del formulario
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
         
         // Validación básica
         if (!validateForm()) {
@@ -14,24 +19,23 @@ $(document).ready(function() {
         }
         
         // Mostrar estado de carga
-        showLoadingState(submitBtn, btnText, btnLoading);
+        showLoadingState();
         
-        // Enviar formulario con fetch para evitar redirecciones
-        const formData = new FormData(form[0]);
+        // Enviar formulario con fetch
+        const formData = new FormData(form);
         
-        fetch(form.attr('action'), {
+        fetch(form.action, {
             method: 'POST',
             body: formData,
-            mode: 'no-cors' // Esto evita problemas de CORS y redirecciones
+            mode: 'no-cors' // Evita problemas de CORS
         })
         .then(() => {
-            // Con no-cors, siempre consideramos exitoso si no hay error de red
-            hideLoadingState(submitBtn, btnText, btnLoading);
+            hideLoadingState();
             showSuccessMessage();
-            form[0].reset();
+            form.reset();
         })
         .catch((error) => {
-            hideLoadingState(submitBtn, btnText, btnLoading);
+            hideLoadingState();
             console.error('Error al enviar formulario:', error);
             showValidationError('Error de conexión. Verifica tu internet.');
         });
@@ -39,13 +43,14 @@ $(document).ready(function() {
     
     // Función de validación
     function validateForm() {
-        const nombre = $('input[name="nombre"]').val().trim();
-        const email = $('input[name="email"]').val().trim();
-        const telefono = $('input[name="telefono"]').val().trim();
+        const nombre = nombreInput.value.trim();
+        const email = emailInput.value.trim();
+        const telefono = telefonoInput.value.trim();
         
         // Validar nombre
         if (nombre.length < 2) {
             showValidationError('El nombre debe tener al menos 2 caracteres');
+            nombreInput.focus();
             return false;
         }
         
@@ -53,12 +58,14 @@ $(document).ready(function() {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
             showValidationError('Por favor ingresa un email válido');
+            emailInput.focus();
             return false;
         }
         
         // Validar teléfono
         if (telefono.length < 8) {
             showValidationError('El teléfono debe tener al menos 8 dígitos');
+            telefonoInput.focus();
             return false;
         }
         
@@ -66,17 +73,17 @@ $(document).ready(function() {
     }
     
     // Mostrar estado de carga
-    function showLoadingState(btn, text, loading) {
-        btn.prop('disabled', true);
-        text.addClass('d-none');
-        loading.removeClass('d-none');
+    function showLoadingState() {
+        submitBtn.disabled = true;
+        btnText.classList.add('d-none');
+        btnLoading.classList.remove('d-none');
     }
     
     // Ocultar estado de carga
-    function hideLoadingState(btn, text, loading) {
-        btn.prop('disabled', false);
-        text.removeClass('d-none');
-        loading.addClass('d-none');
+    function hideLoadingState() {
+        submitBtn.disabled = false;
+        btnText.classList.remove('d-none');
+        btnLoading.classList.add('d-none');
     }
     
     // Mostrar mensaje de éxito
@@ -92,17 +99,6 @@ $(document).ready(function() {
         });
     }
     
-    // Mostrar mensaje de error
-    function showErrorMessage() {
-        Swal.fire({
-            icon: 'error',
-            title: 'Error al enviar',
-            text: 'Hubo un problema al enviar tu mensaje. Por favor intenta nuevamente.',
-            confirmButtonText: 'Intentar de nuevo',
-            confirmButtonColor: '#ffbf00'
-        });
-    }
-    
     // Mostrar error de validación
     function showValidationError(message) {
         Swal.fire({
@@ -114,13 +110,22 @@ $(document).ready(function() {
         });
     }
     
-    // Animación suave al hacer scroll
-    $(window).on('scroll', function() {
-        const scrollTop = $(this).scrollTop();
-        if (scrollTop > 100) {
-            $('.hero').addClass('scrolled');
-        } else {
-            $('.hero').removeClass('scrolled');
+    // Animación suave al hacer scroll (optimizada con throttle)
+    let ticking = false;
+    const hero = document.querySelector('.hero');
+    
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if (scrollTop > 100) {
+                    hero.classList.add('scrolled');
+                } else {
+                    hero.classList.remove('scrolled');
+                }
+                ticking = false;
+            });
+            ticking = true;
         }
-    });
+    }, { passive: true });
 });

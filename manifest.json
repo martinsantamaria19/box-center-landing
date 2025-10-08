@@ -1,0 +1,26 @@
+{
+  "name": "BoxCenter Uruguay - Depósitos Seguros",
+  "short_name": "BoxCenter",
+  "description": "El mayor complejo de depósitos seguros del país. Boxes desde 1.5m² hasta 1500m² con vigilancia 24/7.",
+  "start_url": "/landing-page/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffbf00",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["business", "storage"],
+  "lang": "es-UY"
+}
