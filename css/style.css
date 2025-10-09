@@ -269,6 +269,10 @@ body, html {
     .mb-3 {
       margin-bottom: 0.75rem !important;
     }
+    
+    .scroll-indicator {
+      display: none; /* Ocultar en landscape para no interferir */
+    }
   }
 
   /* Mejoras de rendimiento */
@@ -316,6 +320,13 @@ body, html {
   backdrop-filter: blur(3px);
 }
 
+/* Overlay específico para página de éxito (sin blur) */
+.success-hero .hero-overlay {
+  backdrop-filter: blur(3px);
+  background: rgba(0, 0, 0, 0.671);
+  z-index: 0.5; /* Por debajo del contenido pero encima de la imagen */
+}
+
 /* Logo en esquina superior izquierda */
 .logo-header {
   top: 20px;
@@ -330,6 +341,66 @@ body, html {
 .contenedor-principal {
   position: relative;
   z-index: 2;
+}
+
+/* Indicador de scroll animado */
+.scroll-indicator {
+  bottom: 0px;
+  z-index: 3;
+  text-align: left;
+  margin-top: 40px;
+}
+
+.scroll-text {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.scroll-text span {
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.9;
+  letter-spacing: 0.5px;
+}
+
+.scroll-arrow {
+  animation: bounce 2s infinite;
+}
+
+.scroll-arrow i {
+  font-size: 24px;
+  color: #ffbf00;
+  opacity: 0.8;
+}
+
+.scroll-text:hover {
+  transform: translateY(-3px);
+}
+
+.scroll-text:hover span {
+  opacity: 1;
+}
+
+.scroll-text:hover .scroll-arrow i {
+  opacity: 1;
+  color: #ffc107;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
 }
 
 /* Texto SEO extra */
@@ -354,5 +425,484 @@ body, html {
   }
   .subtitulo-hero {
     font-size: 1rem;
+  }
+  
+  .scroll-indicator {
+    bottom: 20px;
+    left: 20px;
+  }
+  
+  .scroll-text span {
+    font-size: 13px;
+  }
+  
+  .scroll-arrow i {
+    font-size: 20px;
+  }
+}
+
+/* Features Section */
+
+.features {
+  background-color: #f8f9fa;
+  padding: 80px 0;
+}
+
+/* Service Cards */
+.service-card {
+  background: white;
+  border-radius: 16px;
+  padding: 40px 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Service Icon */
+.service-icon {
+  width: 80px;
+  height: 80px;
+  background-color: #ffbf00;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px auto;
+}
+
+.service-icon i {
+  font-size: 36px;
+  color: white;
+}
+
+/* Service Title */
+.service-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 16px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* Service Subtitle */
+.service-subtitle {
+  font-size: 16px;
+  color: #5a6c7d;
+  margin-bottom: 24px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Service Features List */
+.service-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+}
+
+.service-features li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #5a6c7d;
+  line-height: 1.4;
+}
+
+.service-features li:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  background-color: #ffc107;
+  border-radius: 50%;
+}
+
+/* Service Highlight Box */
+.service-highlight {
+  background-color: #e3f2fd;
+  color: #1976d2;
+  padding: 16px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  line-height: 1.4;
+}
+
+/* Service Button */
+.service-btn {
+  background: white;
+  border: 2px solid #e9ecef;
+  color: #495057;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  width: 100%;
+  justify-content: center;
+}
+
+.service-btn:hover {
+  border-color: #ffc107;
+  color: #ffc107;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.2);
+}
+
+.service-btn i {
+  font-size: 14px;
+  transition: transform 0.3s ease;
+}
+
+.service-btn:hover i {
+  transform: translateX(3px);
+}
+
+/* Responsive Design for Service Cards */
+@media (max-width: 768px) {
+  .features {
+    padding: 60px 0;
+  }
+  
+  .service-card {
+    padding: 30px 20px;
+    margin-bottom: 30px;
+  }
+  
+  .service-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px auto;
+  }
+  
+  .service-icon i {
+    font-size: 28px;
+  }
+  
+  .service-title {
+    font-size: 24px;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+  
+  .service-subtitle {
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .service-features li {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  
+  .service-highlight {
+    padding: 14px 16px;
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+  
+  .service-btn {
+    padding: 14px 20px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .features {
+    padding: 40px 0;
+  }
+  
+  .service-card {
+    padding: 25px 18px;
+    margin-bottom: 25px;
+  }
+  
+  .service-icon {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 16px auto;
+  }
+  
+  .service-icon i {
+    font-size: 24px;
+  }
+  
+  .service-title {
+    font-size: 22px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .service-subtitle {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  
+  .service-features li {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+  
+  .service-highlight {
+    padding: 12px 14px;
+    font-size: 12px;
+    margin-bottom: 16px;
+  }
+  
+  .service-btn {
+    padding: 12px 18px;
+    font-size: 14px;
+  }
+}
+
+/* Whatsapp */
+.whatsapp-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 3;
+}
+
+.whatsapp-icon {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.whatsapp-icon:hover {
+  transform: scale(1.1);
+}
+
+/* ==========================================
+   PÁGINA DE CONTACTO EXITOSO
+   ========================================== */
+
+/* Hero de éxito */
+.success-hero {
+  min-height: 100vh;
+  min-height: 100dvh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Logo en página de éxito */
+.success-logo {
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+  transition: transform 0.3s ease;
+}
+
+.success-logo:hover {
+  transform: scale(1.05);
+}
+
+/* Ícono de éxito */
+.success-icon {
+  display: inline-block;
+  animation: successPulse 2s ease-in-out infinite;
+}
+
+.success-icon i {
+  font-size: 80px;
+  color: #28a745;
+  filter: drop-shadow(0 4px 12px rgba(40, 167, 69, 0.3));
+}
+
+@keyframes successPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Título de éxito */
+.success-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+/* Subtítulo de éxito */
+.success-subtitle {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Información adicional */
+.success-info {
+  margin-top: 3rem;
+}
+
+.info-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 20px 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.info-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-5px);
+}
+
+.info-card i {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.info-card span {
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* Botones de acción */
+.success-actions {
+  margin-top: 3rem;
+}
+
+.success-actions .btn {
+  padding: 12px 30px;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.success-actions .btn-warning {
+  background-color: #ffbf00;
+  border-color: #ffbf00;
+  color: #000;
+}
+
+.success-actions .btn-warning:hover {
+  background-color: #e6ad00;
+  border-color: #e6ad00;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 191, 0, 0.3);
+}
+
+.success-actions .btn-outline-light {
+  border-color: rgba(255, 255, 255, 0.5);
+  color: white;
+}
+
+.success-actions .btn-outline-light:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: white;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Footer de éxito */
+.success-footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive para página de éxito */
+@media (max-width: 768px) {
+  .success-icon i {
+    font-size: 60px;
+  }
+  
+  .success-title {
+    font-size: 2.2rem;
+  }
+  
+  .success-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .info-card {
+    padding: 15px 10px;
+    margin-bottom: 15px;
+  }
+  
+  .info-card i {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+  
+  .info-card span {
+    font-size: 13px;
+  }
+  
+  .success-actions .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .success-actions .btn:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .success-logo {
+    max-width: 80px;
+  }
+  
+  .success-icon i {
+    font-size: 50px;
+  }
+  
+  .success-title {
+    font-size: 1.8rem;
+  }
+  
+  .success-subtitle {
+    font-size: 1rem;
+  }
+  
+  .info-card {
+    padding: 12px 8px;
+  }
+  
+  .info-card i {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+  
+  .info-card span {
+    font-size: 12px;
   }
 }

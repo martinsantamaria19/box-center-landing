@@ -3,6 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NGTBKCG');</script>
+  <!-- End Google Tag Manager -->
   
   <!-- SEO Básico -->
   <title>Depósitos Seguros 24/7 en Uruguay | BoxCenter</title>
@@ -94,6 +102,14 @@
   </script>
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NGTBKCG"
+    
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <!-- End Google Tag Manager (noscript) -->
+
 
   <section class="hero d-flex align-items-center position-relative">
     <!-- Imagen optimizada del hero -->
@@ -105,12 +121,13 @@
       height="1080"
       decoding="async"
       fetchpriority="high">
-  
     <!-- Overlay oscuro para contraste de texto -->
     <div class="hero-overlay"></div>
   
     <div class="container-fluid contenedor-principal position-relative">
       <!-- Logo en esquina superior izquierda -->
+
+      <a href="https://www.boxcenter.com.uy">
       <img 
         src="img/logo-box-center.webp" 
         alt="BoxCenter Uruguay Logo" 
@@ -118,7 +135,7 @@
         width="150" 
         height="auto"
         decoding="async">
-      
+      </a>
       <div class="row align-items-center">
         <!-- Columna izquierda -->
         <div class="col-lg-6 text-white mb-4 mb-lg-0">
@@ -150,7 +167,7 @@
         </div>
   
         <!-- Columna derecha (Formulario) -->
-        <div class="col-lg-6">
+        <div class="col-lg-6" id="form">
           <div class="card shadow-lg border-0 p-3 p-md-4">
             <h2 class="text-center fw-semibold mb-2 form-title">Solicitá tu cotización</h2>
             <p class="text-center text-muted mb-3 mb-md-4 form-subtitle">Te contactamos en menos de 24 horas</p>
@@ -161,7 +178,7 @@
               </div>
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" id="email" name="email" class="form-control" placeholder="nombre@tuempresa.com" required autocomplete="email">
+                <input type="email" id="email" name="email" class="form-control" placeholder="nombre@mail.com" required autocomplete="email">
               </div>
               <div class="mb-3">
                 <label for="telefono" class="form-label">Teléfono</label>
@@ -193,10 +210,108 @@
           </div>
         </div>
       </div>
+      
+      <!-- Indicador de scroll animado -->
+      <div class="scroll-indicator">
+        <div class="scroll-text">
+          <span>Descubrí nuestras soluciones</span>
+          <div class="scroll-arrow">
+            <i class="bi bi-chevron-down"></i>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
-  
 
+
+  <section class="features">
+    <div class="container-fluid text-center mb-5">
+      <h1 class="titulo-principal fw-bold mt-5">
+        Boxes Privados Para<br class="d-none d-md-block">
+        <span class="texto-amarillo">Particulares y Empresas</span>
+      </h1>
+      <p class="subtitulo-hero text-muted mt-4">Ofrecemos soluciones de almacenamiento seguro adaptadas a tus necesidades específicas, desde uso personal hasta requerimientos empresariales.</p>
+    </div>
+
+    <div class="container mt-5">
+      <div class="row g-4">
+        <!-- Tarjeta 1: Particulares -->
+        <div class="col-md-4">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="bi bi-person-fill"></i>
+            </div>
+            <h3 class="service-title">Particulares</h3>
+            <p class="service-subtitle">Cuando lo necesites, por el tiempo que lo necesites.</p>
+            <ul class="service-features">
+              <li>Boxes desde 1.5m² hasta 50m²</li>
+              <li>Acceso 24/7 con tu propia llave</li>
+              <li>Tarifas flexibles mensuales</li>
+              <li>Seguridad garantizada</li>
+            </ul>
+            <div class="service-highlight">
+              Ideal para mudanzas, renovaciones o almacenamiento personal
+            </div>
+            <button class="service-btn" onclick="window.location.href='#form'">
+              Más información <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Tarjeta 2: Empresas -->
+        <div class="col-md-4">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="bi bi-building"></i>
+            </div>
+            <h3 class="service-title">Empresas</h3>
+            <p class="service-subtitle">Solución de depósito práctica, segura y confiable.</p>
+            <ul class="service-features">
+              <li>Boxes desde 5m² hasta 1,500m²</li>
+              <li>Contratos empresariales</li>
+              <li>Facturación mensual</li>
+              <li>Carga y descarga facilitada</li>
+            </ul>
+            <div class="service-highlight">
+              Perfecto para inventario, archivo documental o equipos
+            </div>
+            <button class="service-btn" onclick="window.location.href='#form'">
+              Más información <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Tarjeta 3: Oficinas y Showrooms -->
+        <div class="col-md-4">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="bi bi-briefcase-fill"></i>
+            </div>
+            <h3 class="service-title">Oficinas y Showrooms</h3>
+            <p class="service-subtitle">Cómodas salas de reuniones con WiFi y exhibición de productos.</p>
+            <ul class="service-features">
+              <li>Espacios equipados con WiFi</li>
+              <li>Salas de reuniones privadas</li>
+              <li>Exhibición de productos</li>
+              <li>Ubicación estratégica</li>
+            </ul>
+            <div class="service-highlight">
+              Expande tu negocio sin inversión en infraestructura
+            </div>
+            <button class="service-btn" onclick="window.location.href='#form'">
+              Más información <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="whatsapp-container">
+    <a href="https://api.whatsapp.com/send?phone=59891400011" target="_blank">
+      <img src="img/whatsapp-icono.webp" alt="WhatsApp" class="whatsapp-icon">
+    </a>
+  </div>
   
 
   <!-- Bootstrap Bundle JS -->

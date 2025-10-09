@@ -31,8 +31,8 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(() => {
             hideLoadingState();
-            showSuccessMessage();
-            form.reset();
+            // Redirigir a la página de éxito
+            window.location.href = 'contacto-exitoso.html';
         })
         .catch((error) => {
             hideLoadingState();
@@ -86,17 +86,9 @@ document.addEventListener('DOMContentLoaded', function() {
         btnLoading.classList.add('d-none');
     }
     
-    // Mostrar mensaje de éxito
-    function showSuccessMessage() {
-        Swal.fire({
-            icon: 'success',
-            title: '¡Mensaje enviado!',
-            text: 'Gracias por contactarnos. Te responderemos en menos de 24 horas.',
-            confirmButtonText: 'Perfecto',
-            confirmButtonColor: '#ffbf00',
-            timer: 5000,
-            timerProgressBar: true
-        });
+    // Función de éxito (ahora redirige a página de éxito)
+    function redirectToSuccess() {
+        window.location.href = 'contacto-exitoso.html';
     }
     
     // Mostrar error de validación
@@ -128,4 +120,17 @@ document.addEventListener('DOMContentLoaded', function() {
             ticking = true;
         }
     }, { passive: true });
+    
+    // Funcionalidad del indicador de scroll
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    const featuresSection = document.querySelector('.features');
+    
+    if (scrollIndicator && featuresSection) {
+        scrollIndicator.addEventListener('click', function() {
+            featuresSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    }
 });
