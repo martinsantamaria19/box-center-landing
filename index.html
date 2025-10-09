@@ -167,32 +167,31 @@
           <div class="card shadow-lg border-0 p-3 p-md-4">
             <h2 class="text-center fw-semibold mb-2 form-title">Solicitá tu cotización</h2>
             <p class="text-center text-muted mb-3 mb-md-4 form-subtitle">Te contactamos en menos de 24 horas</p>
-            <form id="contactForm" action="https://formspree.io/f/xpwyjdyo" method="POST" novalidate role="form" aria-label="Formulario de contacto">
+            <form id="contactForm">
+              <input type="hidden" name="origin" value="BoxCenter Landing">
               <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre completo *</label>
-                <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Tu nombre" required autocomplete="name" aria-describedby="nombre-help" aria-required="true">
+                <input type="text" id="nombre" name="nombre" class="form-control" required>
               </div>
               <div class="mb-3">
                 <label for="email" class="form-label">Email *</label>
-                <input type="email" id="email" name="email" class="form-control" placeholder="nombre@mail.com" required autocomplete="email" aria-describedby="email-help" aria-required="true">
+                <input type="email" id="email" name="email" class="form-control" required>
               </div>
               <div class="mb-3">
                 <label for="telefono" class="form-label">Teléfono *</label>
-                <input type="tel" id="telefono" name="telefono" class="form-control" placeholder="099 123 456" required autocomplete="tel" aria-describedby="telefono-help" aria-required="true">
+                <input type="tel" id="telefono" name="telefono" class="form-control" required>
               </div>
               <div class="mb-3">
-                <label for="mensaje" class="form-label">¿Qué tipo de depósito necesitás? (opcional)</label>
-                <textarea id="mensaje" name="mensaje" class="form-control" rows="2" placeholder="Ej: Necesito guardar muebles de una mudanza" aria-describedby="mensaje-help"></textarea>
+                <label for="mensaje" class="form-label">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" class="form-control"></textarea>
               </div>
-              <button type="submit" class="btn btn-warning btn-lg w-100 fw-semibold submit-btn" id="submitBtn" aria-describedby="submit-help">
+              <button type="submit" id="submitBtn" class="btn btn-warning w-100 fw-semibold">
                 <span class="btn-text">Obtener Cotización Gratis</span>
-                <span class="btn-loading d-none" aria-hidden="true">
-                  <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-                  Enviando...
+                <span class="btn-loading d-none">
+                  <span class="spinner-border spinner-border-sm me-2"></span>Enviando...
                 </span>
               </button>
-              <p class="text-center text-muted small mt-3 mb-0 form-footer">Sin compromiso • Respuesta inmediata</p>
-            </form>
+            </form>            
           </div>
   
           <div class="seo-text">
