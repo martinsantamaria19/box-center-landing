@@ -37,31 +37,15 @@ document.addEventListener('DOMContentLoaded', function() {
             hideLoadingState();
           
             if (response.ok || response.status === 200) {
-              Swal.fire({
-                icon: 'success',
-                title: 'Enviado con éxito',
-                text: 'Nos pondremos en contacto en menos de 24 horas.',
-                confirmButtonColor: '#ffbf00'
-              }).then(() => {
-                form.reset();
-              });
+              // Redirigir a página de agradecimiento
+              window.location.href = 'contacto-exitoso.html';
             } else {
-              Swal.fire({
-                icon: 'error',
-                title: 'Error al enviar',
-                text: 'Hubo un problema al enviar tu mensaje. Intenta nuevamente.',
-                confirmButtonColor: '#ffbf00'
-              });
+              alert('Hubo un problema al enviar tu mensaje. Por favor, intenta nuevamente.');
             }
           } catch (error) {
             hideLoadingState();
             console.error('Error de conexión:', error);
-            Swal.fire({
-              icon: 'error',
-              title: 'Error de red',
-              text: 'Verifica tu conexión a internet.',
-              confirmButtonColor: '#ffbf00'
-            });
+            alert('Error de conexión. Por favor, verifica tu internet e intenta nuevamente.');
           }
           
           
@@ -120,13 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Mostrar error de validación
     function showValidationError(message) {
-        Swal.fire({
-            icon: 'warning',
-            title: 'Datos incorrectos',
-            text: message,
-            confirmButtonText: 'Entendido',
-            confirmButtonColor: '#ffbf00'
-        });
+        alert(message);
     }
     
     // Animación suave al hacer scroll (optimizada con throttle)
