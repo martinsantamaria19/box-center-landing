@@ -906,3 +906,7 @@ body, html {
     font-size: 12px;
   }
 }
+
+.text-dark {
+  color: #181818;
+}
