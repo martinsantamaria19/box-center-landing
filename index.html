@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
   <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-NGTBKCG');</script>
-  <!-- End Google Tag Manager -->
+  <script>
+    window.dataLayer=window.dataLayer||[];
+    window.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+    setTimeout(()=>{const g=document.createElement('script');
+    g.async=true;g.src='https://www.googletagmanager.com/gtm.js?id=GTM-NGTBKCG';
+    document.head.appendChild(g)},2000);
+  </script>
 
   <!-- SEO Básico -->
   <title>Depósitos Seguros 24/7 en Uruguay | BoxCenter</title>
@@ -19,24 +20,24 @@
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#ffbf00">
   <meta name="author" content="BoxCenter Uruguay">
-  <link rel="canonical" href="https://www.boxcenter.com.uy/landing-page/">
+  <link rel="canonical" href="https://www.boxcenter.com.uy/boxs/">
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="https://boxcenter.com.uy/boxs/img/favicon.ico">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.boxcenter.com.uy/landing-page/">
+  <meta property="og:url" content="https://www.boxcenter.com.uy/boxs/">
   <meta property="og:title" content="Depósitos Seguros 24/7 en Uruguay | BoxCenter">
   <meta property="og:description" content="El mayor complejo de depósitos seguros del país. Boxes desde 1.5m² hasta 1500m² con vigilancia 24/7.">
-  <meta property="og:image" content="https://www.boxcenter.com.uy/landing-page/img/storage-facility-hero.jpg">
+  <meta property="og:image" content="https://www.boxcenter.com.uy/boxs/img/storage-facility-hero.jpg">
   <meta property="og:locale" content="es_UY">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://www.boxcenter.com.uy/landing-page/">
+  <meta name="twitter:url" content="https://www.boxcenter.com.uy/boxs/">
   <meta name="twitter:title" content="Depósitos Seguros 24/7 en Uruguay | BoxCenter">
   <meta name="twitter:description" content="El mayor complejo de depósitos seguros del país. Boxes desde 1.5m² hasta 1500m² con vigilancia 24/7.">
-  <meta name="twitter:image" content="https://www.boxcenter.com.uy/landing-page/img/storage-facility-hero.jpg">
+  <meta name="twitter:image" content="https://www.boxcenter.com.uy/boxs/img/storage-facility-hero.jpg">
 
   <!-- Preconnect -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -82,9 +83,9 @@
     "@type": "LocalBusiness",
     "name": "BoxCenter Uruguay",
     "description": "Depósitos seguros con vigilancia 24/7 en Uruguay",
-    "url": "https://www.boxcenter.com.uy/landing-page",
-    "logo": "https://www.boxcenter.com.uy/landing-page/img/storage-facility-hero.jpg",
-    "image": "https://www.boxcenter.com.uy/landing-page/img/storage-facility-hero.jpg",
+    "url": "https://www.boxcenter.com.uy/boxs",
+    "logo": "https://www.boxcenter.com.uy/boxs/img/storage-facility-hero.jpg",
+    "image": "https://www.boxcenter.com.uy/boxs/img/storage-facility-hero.jpg",
     "priceRange": "$$",
     "address": {"@type": "PostalAddress","addressLocality": "Montevideo","addressCountry": "UY"},
     "telephone": "+598-XXXXXXXX",
@@ -97,24 +98,29 @@
 <body>
   <!-- Google Tag Manager (noscript) -->
 
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-
-    NGTBKCG"
-    
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NGTBKCG"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
 
 
   <section class="hero d-flex align-items-center position-relative">
     <!-- Imagen optimizada del hero -->
-    <img 
-      src="img/storage-facility-hero.webp" 
-      alt="Depósitos seguros en Montevideo con vigilancia 24/7" 
+    <img
+      src="img/storage-facility-hero-800.webp"
+      srcset="
+        img/storage-facility-hero-800.webp 800w,
+        img/storage-facility-hero-1200.webp 1200w,
+        img/storage-facility-hero-1920.webp 1920w"
+      sizes="100vw"
+      alt="Depósitos seguros en Montevideo con vigilancia 24/7"
       class="hero-bg"
-      width="1920" 
+      width="1920"
       height="1080"
       decoding="async"
       fetchpriority="high"
-      loading="eager">
+      loading="eager"
+    />
     <!-- Overlay oscuro para contraste de texto -->
     <div class="hero-overlay"></div>
   
