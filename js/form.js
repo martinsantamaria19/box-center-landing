@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const nombre = nombreInput.value.trim();
         const email = emailInput.value.trim();
         const telefono = telefonoInput.value.trim();
+        const mensaje = mensajeInput.value.trim();
         
         // Validar nombre
         if (nombre.length < 2) {
@@ -77,6 +78,13 @@ document.addEventListener('DOMContentLoaded', function() {
         if (telefono.length < 8) {
             showValidationError('El teléfono debe tener al menos 8 dígitos');
             telefonoInput.focus();
+            return false;
+        }
+
+        // Validar mensaje
+        if (mensaje.length < 10) {
+            showValidationError('El mensaje debe tener al menos 10 caracteres');
+            mensajeInput.focus();
             return false;
         }
         
