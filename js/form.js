@@ -118,16 +118,35 @@ document.addEventListener('DOMContentLoaded', function() {
     // Animación suave al hacer scroll (optimizada con throttle)
     let ticking = false;
     const hero = document.querySelector('.hero');
+    const locationContainer = document.querySelector('.location-container');
+    const featuresSection = document.querySelector('.features');
     
     window.addEventListener('scroll', function() {
         if (!ticking) {
             window.requestAnimationFrame(function() {
                 const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                // Hero scroll effect
                 if (scrollTop > 100) {
                     hero.classList.add('scrolled');
                 } else {
                     hero.classList.remove('scrolled');
                 }
+                
+                // Location container color change when over white background
+                if (locationContainer && featuresSection) {
+                    const featuresOffset = featuresSection.offsetTop;
+                    const featuresHeight = featuresSection.offsetHeight;
+                    const viewportHeight = window.innerHeight;
+                    
+                    // Check if location is over the features section (white background)
+                    if (scrollTop + viewportHeight > featuresOffset && scrollTop < featuresOffset + featuresHeight) {
+                        locationContainer.classList.add('scrolled');
+                    } else {
+                        locationContainer.classList.remove('scrolled');
+                    }
+                }
+                
                 ticking = false;
             });
             ticking = true;
@@ -136,7 +155,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Funcionalidad del indicador de scroll
     const scrollIndicator = document.querySelector('.scroll-indicator');
-    const featuresSection = document.querySelector('.features');
     
     if (scrollIndicator && featuresSection) {
         scrollIndicator.addEventListener('click', function() {
