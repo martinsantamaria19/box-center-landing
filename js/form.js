@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const nombreInput = document.getElementById('nombre');
     const emailInput = document.getElementById('email');
     const telefonoInput = document.getElementById('telefono');
+    const mensajeInput = document.getElementById('mensaje');
     
     // Manejo del envío del formulario
     form.addEventListener('submit', async function(e) {
